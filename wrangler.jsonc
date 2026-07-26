@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "vpn-app",
+  "name": "verifypeppersnow",
   // custom-worker.ts wraps the generated worker to add the scheduled()
   // handler the cron trigger below needs — see custom-worker.ts.
   "main": "custom-worker.ts",
