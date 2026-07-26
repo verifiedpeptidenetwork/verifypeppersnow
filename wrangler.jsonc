@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vpn-app",
+  // custom-worker.ts wraps the generated worker to add the scheduled()
+  // handler the cron trigger below needs — see custom-worker.ts.
+  "main": "custom-worker.ts",
+  "compatibility_date": "2026-07-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  // Runs /api/campaigns/close-expired every 15 min to close out expired
+  // 48h funding windows (mirrors the Vercel Cron config in vercel.json).
+  "triggers": {
+    "crons": ["*/15 * * * *"]
+  }
+}
